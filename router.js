@@ -9,7 +9,7 @@ router.get("/getDetails", async (req, res) => {
     res.json(data);
   } catch (error) {
     message: error;
-  }
+  }``
 });
 router.get("/studentList", async (req, res) => {
   try {

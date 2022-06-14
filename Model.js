@@ -10,8 +10,8 @@ const PostSchema = mongoose.Schema({
     required: true,
   },
   location: {
-    Type: String,
-
+    type: String,
+    required: true,
   },
 });
 

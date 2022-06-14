@@ -8,6 +8,9 @@ app.use(bodyParser.json());
 
 app.use("/student", PostRouter);
 
+
+
+
 const main = async () => {
   try {
     mongoose.connect("mongodb://localhost:27017/myassignment").then(() => {
