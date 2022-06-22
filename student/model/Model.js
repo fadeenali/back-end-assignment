@@ -4,6 +4,7 @@ const PostSchema = mongoose.Schema({
   studentFirstName: {
     type: String,
     required: true,
+    unique:true
   },
   collegeName: {
     type: String,

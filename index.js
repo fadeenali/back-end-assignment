@@ -1,19 +1,21 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const PostRouter = require("./router");
+const Student_Controller = require("./student/controller/Student_Controller");
 const app = express();
 const port = 5000;
 app.use(bodyParser.json());
 
-app.use("/student", PostRouter);
+
+// Routes 
+app.use("/student", Student_Controller);
 
 
 
-
+// DB connection and server start-up 
 const main = async () => {
   try {
-    mongoose.connect("mongodb://localhost:27017/myassignment").then(() => {
+    await mongoose.connect("mongodb://localhost:27017/myassignment").then(() => {
       console.log("DB is connected");
     });
 

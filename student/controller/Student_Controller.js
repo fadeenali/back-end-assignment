@@ -1,16 +1,17 @@
 const express = require("express");
 
 const router = express.Router();
-const Post = require("./Model");
+const StudentModel = require("../model/Model");
 
 router.get("/getDetails", async (req, res) => {
   try {
-    const data = await Post.find();
+    const data = await StudentModel.find();
     res.json(data);
   } catch (error) {
-    message: error;
-  }``
+    res.status(401).json(error)
+  }
 });
+
 router.get("/studentList", async (req, res) => {
   try {
     const list = {
@@ -18,12 +19,12 @@ router.get("/studentList", async (req, res) => {
     };
     res.json(list);
   } catch (error) {
-    message: error;
+    res.status(401).json({message:error})
   }
 });
 
 router.post("/add", async (req, res) => {
-  const dataWillBe = new Post({
+  const dataWillBe = new StudentModel({
     studentFirstName: req.body.studentFirstName,
     collegeName: req.body.collegeName,
     location: req.body.location,
@@ -33,7 +34,7 @@ router.post("/add", async (req, res) => {
     const result = { result: "success" };
     res.json(result);
   } catch (error) {
-    message: error;
+    res.status(401).json(error)
   }
 });
 
