@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const Student_Controller = require("./student/controller/Student_Controller");
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 app.use(bodyParser.json());
 
 // Routes
